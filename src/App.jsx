@@ -17,25 +17,25 @@ function App() {
             <nav className="hidden md:flex items-center justify-center space-x-8 w-full">
               <a
                 href="#home"
-                className="text-textsecondary hover:text-accent transition-colors font-medium"
+                className="nav-link"
               >
                 Accueil
               </a>
               <a
                 href="#projects"
-                className="text-textsecondary hover:text-accent transition-colors font-medium"
+                className="nav-link"
               >
                 Projets
               </a>
               <a
                 href="#about"
-                className="text-textsecondary hover:text-accent transition-colors font-medium"
+                className="nav-link"
               >
                 À propos
               </a>
               <a
                 href="#contact"
-                className="text-textsecondary hover:text-accent transition-colors font-medium"
+                className="nav-link"
               >
                 Contact
               </a>
@@ -43,7 +43,7 @@ function App() {
             {/* Mobile Burger */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 md:hidden p-2 rounded-lg bg-anthracite hover:bg-primary transition-colors"
+              className="mobile-menu-btn"
             >
               {isMobileMenuOpen ? (
                 <svg
@@ -83,31 +83,31 @@ function App() {
                   : "opacity-0 -translate-y-4 pointer-events-none"
               }`}
             >
-              <nav className="flex flex-col items-center space-y-4 py-6">
+                            <nav className="flex flex-col items-center space-y-4 py-6">
                 <a
                   href="#home"
-                  className="text-textsecondary hover:text-accent transition-colors font-medium text-lg"
+                  className="nav-link text-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Accueil
                 </a>
                 <a
                   href="#projects"
-                  className="text-textsecondary hover:text-accent transition-colors font-medium text-lg"
+                  className="nav-link text-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Projets
                 </a>
                 <a
                   href="#about"
-                  className="text-textsecondary hover:text-accent transition-colors font-medium text-lg"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="nav-link text-lg"
+                      onClick={() => setIsMobileMenuOpen(false)}
                 >
                   À propos
                 </a>
                 <a
                   href="#contact"
-                  className="text-textsecondary hover:text-accent transition-colors font-medium text-lg"
+                  className="nav-link text-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact
@@ -143,7 +143,7 @@ function App() {
                   Voir mes projets
                 </button>
                 <button
-                  className="bg-white text-charbon font-medium text-lg px-8 py-3 rounded-lg shadow-md hover:shadow-[0_0_0_3px_#BB86FC] transition-all animate-slide-up"
+                  className="btn-secondary text-lg px-8 py-3 animate-slide-up"
                   style={{ animationDelay: "0.6s" }}
                 >
                   Télécharger CV
@@ -362,7 +362,7 @@ function App() {
                         type="text"
                         id="firstName"
                         name="firstName"
-                        className="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-700 text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                        className="form-input"
                         placeholder="Votre prénom"
                       />
                     </div>
@@ -377,7 +377,7 @@ function App() {
                         type="text"
                         id="lastName"
                         name="lastName"
-                        className="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-700 text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                        className="form-input"
                         placeholder="Votre nom"
                       />
                     </div>
@@ -394,7 +394,7 @@ function App() {
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-700 text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="form-input"
                       placeholder="votre@email.com"
                     />
                   </div>
@@ -410,7 +410,7 @@ function App() {
                       type="text"
                       id="subject"
                       name="subject"
-                      className="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-700 text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="form-input"
                       placeholder="Sujet de votre message"
                     />
                   </div>
@@ -426,14 +426,14 @@ function App() {
                       id="message"
                       name="message"
                       rows="5"
-                      className="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-700 text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
+                      className="form-input resize-none"
                       placeholder="Décrivez votre projet ou votre demande..."
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full btn-primary text-lg py-3 hover:scale-105 transition-transform"
+                    className="w-full btn-primary text-lg py-3"
                   >
                     Envoyer le message
                   </button>
@@ -527,7 +527,7 @@ function App() {
                       <div className="flex space-x-4 mt-2">
                         <a
                           href="#"
-                          className="text-primary-400 hover:text-primary-300 transition-colors"
+                          className="social-link"
                         >
                           <svg
                             className="w-6 h-6"
@@ -539,7 +539,7 @@ function App() {
                         </a>
                         <a
                           href="#"
-                          className="text-primary-400 hover:text-primary-300 transition-colors"
+                          className="social-link"
                         >
                           <svg
                             className="w-6 h-6"
@@ -551,14 +551,14 @@ function App() {
                         </a>
                         <a
                           href="#"
-                          className="text-primary-400 hover:text-primary-300 transition-colors"
+                          className="social-link"
                         >
                           <svg
                             className="w-6 h-6"
                             fill="currentColor"
                             viewBox="0 0 24 24"
                           >
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.24c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                           </svg>
                         </a>
                       </div>
