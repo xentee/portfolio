@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AnimatedBackground from "./components/AnimatedBackground";
+import Carousel from "./components/Carousel";
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -195,6 +196,16 @@ function App() {
                 <p className="text-gray-400">Docker, CI/CD, Git</p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="section bg-gray-900 border-b border-gray-800">
+          <div className="container-custom">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-100 mb-12">
+              Mes Projets
+            </h2>
+            <Carousel />
           </div>
         </section>
 
