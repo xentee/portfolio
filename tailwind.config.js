@@ -75,8 +75,18 @@ export default {
           '50%': { transform: 'translateY(-10px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 5px rgba(147, 51, 234, 0.5)' },
-          '100%': { boxShadow: '0 0 20px rgba(147, 51, 234, 0.8)' },
+          '0%': { 
+            boxShadow: '0 0 5px rgba(187, 134, 252, 0.5)',
+            textShadow: '0 0 10px rgba(187, 134, 252, 0.3)'
+          },
+          '100%': { 
+            boxShadow: '0 0 20px rgba(187, 134, 252, 0.8)',
+            textShadow: '0 0 20px rgba(187, 134, 252, 0.6)'
+          },
+        },
+        'text-glow': {
+          '0%': { textShadow: '0 0 10px rgba(187, 134, 252, 0.5)' },
+          '100%': { textShadow: '0 0 20px rgba(187, 134, 252, 0.8)' },
         },
       },
     },

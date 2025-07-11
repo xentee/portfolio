@@ -1,12 +1,16 @@
 import { useState } from "react";
+import AnimatedBackground from "./components/AnimatedBackground";
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 transition-colors duration-300">
+    <div className="min-h-screen text-gray-100 transition-colors duration-300 relative overflow-hidden">
+      {/* Animated Background */}
+      <AnimatedBackground />
+      
       {/* Main Content with padding for fixed header */}
-      <div className="pt-20">
+      <div className="pt-20 relative z-10">
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 bg-anthracite/95 backdrop-blur-md shadow-none z-50">
           <div className="container-custom flex flex-col items-center justify-center h-20">
@@ -120,34 +124,59 @@ function App() {
         {/* Hero Section */}
         <section
           id="home"
-          className="section bg-gray-900 border-b border-gray-800"
+          className="section min-h-screen flex items-center justify-center relative"
         >
-          <div className="container-custom">
+          {/* Overlay pour améliorer la lisibilité */}
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+          
+          <div className="container-custom relative z-10">
             <div className="text-center animate-fade-in">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-100 mb-6 animate-scale-in">
-                Bonjour, je suis{" "}
-                <span className="text-primary-400 animate-glow">Lucas</span>
+              {/* Titre principal avec effet de glitch */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-gray-100 mb-6 animate-scale-in relative">
+                <span className="block">Bonjour, je suis</span>
+                <span className="shine-text">Lucas</span>
               </h1>
+              
+              {/* Sous-titre avec effet de typewriter */}
               <p
-                className="text-lg sm:text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto animate-slide-up px-4"
+                className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-8 max-w-4xl mx-auto animate-slide-up px-4 font-light"
                 style={{ animationDelay: "0.3s" }}
               >
-                Développeur passionné créant des expériences numériques modernes
-                et innovantes
+                <span className="bg-gradient-to-r from-gray-300 to-gray-400 bg-clip-text text-transparent">
+                  Développeur passionné créant des expériences numériques modernes
+                  et innovantes
+                </span>
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              
+              {/* Description détaillée */}
+              <p
+                className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto animate-slide-up px-4"
+                style={{ animationDelay: "0.4s" }}
+              >
+                Spécialisé en développement web full-stack, je transforme vos idées en applications performantes et élégantes.
+              </p>
+              
+              {/* Boutons avec effets améliorés */}
+              <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up" style={{ animationDelay: "0.5s" }}>
                 <button
-                  className="btn-primary text-lg px-8 py-3 animate-slide-up"
-                  style={{ animationDelay: "0.5s" }}
+                  className="btn-primary text-lg px-10 py-4 relative overflow-hidden group"
                 >
-                  Voir mes projets
+                  <span className="relative z-10">Voir mes projets</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 </button>
                 <button
-                  className="btn-secondary text-lg px-8 py-3 animate-slide-up"
-                  style={{ animationDelay: "0.6s" }}
+                  className="btn-secondary text-lg px-10 py-4 relative overflow-hidden group"
                 >
-                  Télécharger CV
+                  <span className="relative z-10">Télécharger CV</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 </button>
+              </div>
+              
+              {/* Indicateur de scroll */}
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+                <div className="w-6 h-10 border-2 border-accent rounded-full flex justify-center">
+                  <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-pulse"></div>
+                </div>
               </div>
             </div>
           </div>
