@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import AnimatedBackground from "./components/AnimatedBackground";
 import Carousel from "./components/Carousel";
-import ThreeDAvatar from "./components/ThreeDAvatar";
+import ThreeDAvatar from "./components/Laptop3D";
 import TechStack from "./components/TechStack";
 
 // Ajout du scroll fluide global
