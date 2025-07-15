@@ -1,9 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AnimatedBackground from "./components/AnimatedBackground";
 import Carousel from "./components/Carousel";
+import ThreeDAvatar from "./components/ThreeDAvatar";
+
+// Ajout du scroll fluide global
+if (typeof window !== 'undefined') {
+  document.documentElement.style.scrollBehavior = 'smooth';
+}
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Scroll fluide pour tous les liens d’ancre internes
+  useEffect(() => {
+    const handleSmoothScroll = (e) => {
+      // On cible uniquement les clics sur <a href="#...">
+      const anchor = e.target.closest('a[href^="#"]');
+      if (anchor) {
+        const href = anchor.getAttribute('href');
+        // On ignore si ce n’est pas une ancre valide
+        if (href.length > 1) {
+          const id = href.slice(1);
+          const el = document.getElementById(id);
+          e.preventDefault(); // Toujours empêcher le comportement par défaut
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+            setIsMobileMenuOpen(false);
+          }
+        }
+      }
+    };
+    document.addEventListener('click', handleSmoothScroll);
+    return () => document.removeEventListener('click', handleSmoothScroll);
+  }, []);
 
   return (
     <div className="min-h-screen text-gray-100 transition-colors duration-300 relative overflow-hidden">
@@ -142,14 +171,21 @@ function App() {
                 className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up"
                 style={{ animationDelay: "0.5s" }}
               >
-                <button className="btn-primary text-lg px-10 py-4 relative overflow-hidden group">
+                <a
+                  href="#projects"
+                  className="btn-primary text-lg px-10 py-4 relative overflow-hidden group cursor-pointer"
+                >
                   <span className="relative z-10">Voir mes projets</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                </button>
-                <button className="btn-secondary text-lg px-10 py-4 relative overflow-hidden group">
+                </a>
+                <a
+                  href="/cv-lucas-fanner.pdf"
+                  download
+                  className="btn-secondary text-lg px-10 py-4 relative overflow-hidden group"
+                >
                   <span className="relative z-10">Télécharger CV</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                </button>
+                </a>
               </div>
 
               {/* Indicateur de scroll */}
@@ -202,9 +238,6 @@ function App() {
         {/* Projects Section */}
         <section id="projects" className="section bg-gray-900 border-b border-gray-800">
           <div className="container-custom">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-100 mb-12">
-              Mes Projets
-            </h2>
             <Carousel />
           </div>
         </section>
@@ -219,10 +252,8 @@ function App() {
               {/* Left Column - Image & Stats */}
               <div className="space-y-8">
                 {/* Profile Image Placeholder */}
-                <div className="relative">
-                  <div className="w-64 h-64 sm:w-80 sm:h-80 mx-auto bg-accent rounded-full flex items-center justify-center text-charbon text-4xl sm:text-6xl font-bold shadow-2xl animate-scale-in animate-float">
-                    L
-                  </div>
+                <div className="w-full max-w-md mx-auto animate-scale-in animate-float">
+                  <ThreeDAvatar />
                 </div>
 
                 {/* Stats */}
