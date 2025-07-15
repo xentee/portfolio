@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import AnimatedBackground from "./components/AnimatedBackground";
 import Carousel from "./components/Carousel";
 import ThreeDAvatar from "./components/ThreeDAvatar";
+import TechStack from "./components/TechStack";
 
 // Ajout du scroll fluide global
 if (typeof window !== 'undefined') {
@@ -251,38 +252,12 @@ function App() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left Column - Image & Stats */}
               <div className="space-y-8">
-                {/* Profile Image Placeholder */}
+                {/* Profile Image Placeholder remplacé par le laptop 3D */}
                 <div className="w-full max-w-md mx-auto animate-scale-in animate-float">
                   <ThreeDAvatar />
                 </div>
-
-                {/* Stats */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                  <div className="bg-gray-800 rounded-lg p-4 shadow-md">
-                    <div className="text-2xl font-bold text-primary-400">
-                      3+
-                    </div>
-                    <div className="text-sm text-gray-400">
-                      Années d'expérience
-                    </div>
-                  </div>
-                  <div className="bg-gray-800 rounded-lg p-4 shadow-md">
-                    <div className="text-2xl font-bold text-primary-400">
-                      50+
-                    </div>
-                    <div className="text-sm text-gray-400">
-                      Projets réalisés
-                    </div>
-                  </div>
-                  <div className="bg-gray-800 rounded-lg p-4 shadow-md">
-                    <div className="text-2xl font-bold text-primary-400">
-                      100%
-                    </div>
-                    <div className="text-sm text-gray-400">
-                      Satisfaction client
-                    </div>
-                  </div>
-                </div>
+                {/* Tech stack logos */}
+                <TechStack />
               </div>
 
               {/* Right Column - Content */}

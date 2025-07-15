@@ -45,7 +45,7 @@ export default function ThreeDAvatar() {
   return (
     <div
       style={{ width: '100%', height: '350px' }}
-      className="sm:h-[500px]"
+      className="sm:h-[600px]"
     >
       <Canvas camera={{ position: [0, 0.7, 3.7], fov: 40 }}>
         <ambientLight intensity={0.7} />
