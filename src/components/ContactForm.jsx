@@ -60,10 +60,10 @@ export default function ContactForm() {
 
     try {
       const result = await emailjs.sendForm(
-        EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || EMAILJS_CONFIG.SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || EMAILJS_CONFIG.TEMPLATE_ID,
         form.current,
-        EMAILJS_CONFIG.PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || EMAILJS_CONFIG.PUBLIC_KEY
       );
 
       if (result.status === 200) {
@@ -212,7 +212,7 @@ export default function ContactForm() {
         <div className="flex justify-center mb-4">
           <ReCAPTCHA
             ref={recaptchaRef}
-            sitekey={RECAPTCHA_CONFIG.SITE_KEY}
+            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || RECAPTCHA_CONFIG.SITE_KEY}
             onChange={handleCaptchaChange}
             theme="dark"
             size="normal"
