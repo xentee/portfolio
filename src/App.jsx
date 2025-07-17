@@ -1,29 +1,28 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AnimatedBackground from "./components/AnimatedBackground";
 import Carousel from "./components/Carousel";
 import ThreeDAvatar from "./components/Laptop3D";
 import TechStack from "./components/TechStack";
+import ProjectsPage from "./pages/ProjectsPage";
+import Header from "./components/Header";
 
-// Ajout du scroll fluide global
 if (typeof window !== 'undefined') {
   document.documentElement.style.scrollBehavior = 'smooth';
 }
 
-function App() {
+function HomePage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Scroll fluide pour tous les liens d’ancre internes
   useEffect(() => {
     const handleSmoothScroll = (e) => {
-      // On cible uniquement les clics sur <a href="#...">
       const anchor = e.target.closest('a[href^="#"]');
       if (anchor) {
         const href = anchor.getAttribute('href');
-        // On ignore si ce n’est pas une ancre valide
         if (href.length > 1) {
           const id = href.slice(1);
           const el = document.getElementById(id);
-          e.preventDefault(); // Toujours empêcher le comportement par défaut
+          e.preventDefault();
           if (el) {
             el.scrollIntoView({ behavior: 'smooth' });
             setIsMobileMenuOpen(false);
@@ -37,126 +36,24 @@ function App() {
 
   return (
     <div className="min-h-screen text-gray-100 transition-colors duration-300 relative overflow-hidden">
-      {/* Animated Background */}
-      <AnimatedBackground />
+              <AnimatedBackground />
 
-      {/* Main Content with padding for fixed header */}
-      <div className="pt-20 relative z-10">
-        {/* Header */}
-        <header className="fixed top-0 left-0 right-0 bg-anthracite/95 backdrop-blur-md shadow-none z-50">
-          <div className="container-custom flex flex-col items-center justify-center h-20">
-            <div className="text-2xl font-bold text-accent tracking-tight mb-1">
-              Lucas FANNER
-            </div>
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center justify-center space-x-8 w-full">
-              <a href="#home" className="nav-link">
-                Accueil
-              </a>
-              <a href="#projects" className="nav-link">
-                Projets
-              </a>
-              <a href="#about" className="nav-link">
-                À propos
-              </a>
-              <a href="#contact" className="nav-link">
-                Contact
-              </a>
-            </nav>
-            {/* Mobile Burger */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="mobile-menu-btn"
-            >
-              {isMobileMenuOpen ? (
-                <svg
-                  className="w-7 h-7 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className="w-7 h-7 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              )}
-            </button>
-            {/* Mobile Menu */}
-            <div
-              className={`md:hidden fixed top-20 left-0 right-0 bg-anthracite/95 backdrop-blur-md z-40 transition-all duration-300 ${
-                isMobileMenuOpen
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 -translate-y-4 pointer-events-none"
-              }`}
-            >
-              <nav className="flex flex-col items-center space-y-4 py-6">
-                <a
-                  href="#home"
-                  className="nav-link text-lg"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Accueil
-                </a>
-                <a
-                  href="#projects"
-                  className="nav-link text-lg"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Projets
-                </a>
-                <a
-                  href="#about"
-                  className="nav-link text-lg"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  À propos
-                </a>
-                <a
-                  href="#contact"
-                  className="nav-link text-lg"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contact
-                </a>
-              </nav>
-            </div>
-          </div>
-        </header>
+        <div className="pt-20 relative z-10">
+          <Header />
 
-        {/* Hero Section */}
-        <section
-          id="home"
-          className="section min-h-screen flex items-center justify-center relative"
-        >
-          {/* Overlay pour améliorer la lisibilité */}
-          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+          <section
+            id="home"
+            className="section min-h-screen flex items-center justify-center relative"
+          >
+            <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
 
           <div className="container-custom relative z-10">
             <div className="text-center animate-fade-in">
-              {/* Titre principal avec effet de glitch */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-gray-100 mb-6 animate-scale-in relative">
                 <span className="block">Bonjour, je suis</span>
                 <span className="shine-text">Lucas</span>
               </h1>
 
-              {/* Sous-titre avec effet de typewriter */}
               <p
                 className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-8 max-w-4xl mx-auto animate-slide-up px-4 font-light"
                 style={{ animationDelay: "0.3s" }}
@@ -167,7 +64,6 @@ function App() {
                 </span>
               </p>
 
-              {/* Boutons avec effets améliorés */}
               <div
                 className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up"
                 style={{ animationDelay: "0.5s" }}
@@ -181,15 +77,15 @@ function App() {
                 </a>
                 <a
                   href="/cv-lucas-fanner.pdf"
-                  download
                   className="btn-secondary text-lg px-10 py-4 relative overflow-hidden group"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <span className="relative z-10">Télécharger CV</span>
+                  <span className="relative z-10">Voir mon CV</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 </a>
               </div>
 
-              {/* Indicateur de scroll */}
               <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
                 <div className="w-6 h-10 border-2 border-accent rounded-full flex justify-center">
                   <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-pulse"></div>
@@ -199,7 +95,6 @@ function App() {
           </div>
         </section>
 
-        {/* Skills Section */}
         <section className="section bg-gray-800 border-b border-gray-800">
           <div className="container-custom">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-100 mb-12">
@@ -236,31 +131,25 @@ function App() {
           </div>
         </section>
 
-        {/* Projects Section */}
         <section id="projects" className="section bg-gray-900 border-b border-gray-800">
           <div className="container-custom">
             <Carousel />
           </div>
         </section>
 
-        {/* About Section */}
         <section
           id="about"
           className="section bg-gray-900 border-b border-gray-800"
         >
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Left Column - Image & Stats */}
               <div className="space-y-8">
-                {/* Profile Image Placeholder remplacé par le laptop 3D */}
                 <div className="w-full max-w-md mx-auto animate-scale-in animate-float">
-                  <ThreeDAvatar />
+                  <ThreeDAvatar useCSS={false} />
                 </div>
-                {/* Tech stack logos */}
                 <TechStack />
               </div>
 
-              {/* Right Column - Content */}
               <div className="space-y-6">
                 <div>
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-100 mb-4">
@@ -281,7 +170,6 @@ function App() {
                   attentes et créent une vraie valeur ajoutée.
                 </p>
 
-                {/* Experience Timeline */}
                 <div className="space-y-4">
                   <h3 className="text-2xl font-semibold text-gray-100 mb-4">
                     Mon Parcours
@@ -332,9 +220,9 @@ function App() {
                           IUT de Bordeaux • 2022 - 2025
                         </p>
                         <p className="text-gray-400 text-sm mt-1">
-                          En trois ans au BUT Informatique de l’IUT de Bordeaux,
-                          j’ai exploré de A à Z le cycle de vie des projets web,
-                          de la conception d’API à la sécurisation des
+                          En trois ans au BUT Informatique de l'IUT de Bordeaux,
+                          j'ai exploré de A à Z le cycle de vie des projets web,
+                          de la conception d'API à la sécurisation des
                           infrastructures, tout en confrontant au quotidien les
                           enjeux méthodologiques et éthiques du numérique.
                         </p>
@@ -343,7 +231,6 @@ function App() {
                   </div>
                 </div>
 
-                {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <button className="btn-primary">Voir mon CV complet</button>
                   <button className="btn-secondary">Me contacter</button>
@@ -353,7 +240,6 @@ function App() {
           </div>
         </section>
 
-        {/* Contact Section */}
         <section id="contact" className="section bg-gray-800">
           <div className="container-custom">
             <div className="text-center mb-12">
@@ -368,7 +254,6 @@ function App() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Form */}
               <div className="space-y-6">
                 <h3 className="text-2xl font-semibold text-gray-100 mb-6">
                   Envoyez-moi un message
@@ -465,14 +350,12 @@ function App() {
                 </form>
               </div>
 
-              {/* Contact Info */}
               <div className="space-y-8">
                 <h3 className="text-2xl font-semibold text-gray-100 mb-6">
                   Mes coordonnées
                 </h3>
 
                 <div className="space-y-6">
-                  {/* Email */}
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
                       <svg
@@ -497,7 +380,6 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Location */}
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
                       <svg
@@ -528,7 +410,6 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Social Links */}
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
                       <svg
@@ -586,7 +467,6 @@ function App() {
           </div>
         </section>
 
-        {/* Fixed Availability Badge */}
         <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
           <div className="bg-green-500 text-white px-3 py-2 md:px-4 rounded-full text-xs md:text-sm font-medium shadow-lg animate-pulse">
             <div className="flex items-center space-x-1 md:space-x-2">
@@ -598,6 +478,17 @@ function App() {
         </div>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projets" element={<ProjectsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
