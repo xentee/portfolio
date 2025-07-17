@@ -74,7 +74,7 @@ export const projects = [
     category: "Full-Stack",
     githubUrl: "#",
     liveUrl: "#",
-    featured: false,
+    featured: true,
     status: "completed"
   }
 ];
