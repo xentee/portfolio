@@ -81,17 +81,44 @@ function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  <svg 
+                    className="absolute top-2 left-2 w-5 h-5 text-gray-300 group-hover:text-accent transition-colors duration-300" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
+                    />
+                  </svg>
                   <span className="relative z-10">Voir mon CV</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 </a>
               </div>
 
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-                <div className="w-6 h-10 border-2 border-accent rounded-full flex justify-center">
-                  <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-pulse"></div>
-                </div>
-              </div>
             </div>
+          </div>
+          
+          <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 text-center">
+            <svg 
+              className="w-6 h-6 text-accent mx-auto mb-2 animate-bounce" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M19 14l-7 7m0 0l-7-7m7 7V3" 
+              />
+            </svg>
+            <p className="text-sm text-gray-400 animate-pulse">
+              Découvrez mes projets
+            </p>
           </div>
         </section>
 
