@@ -70,8 +70,7 @@ web_modules/
 .env.*
 !.env.example
 
-# Configuration files with sensitive data (templates)
-# These files are included in deployment but contain placeholder values
+# Configuration files with sensitive data
 src/config/emailjs.js
 src/config/recaptcha.js
 

@@ -1,8 +1,34 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { EMAILJS_CONFIG } from '../config/emailjs';
-import { RECAPTCHA_CONFIG } from '../config/recaptcha';
+
+// Configuration par défaut (utilisée en production)
+const DEFAULT_EMAILJS_CONFIG = {
+  SERVICE_ID: 'VOTRE_SERVICE_ID_ICI',
+  TEMPLATE_ID: 'VOTRE_TEMPLATE_ID_ICI',
+  PUBLIC_KEY: 'VOTRE_PUBLIC_KEY_ICI'
+};
+
+const DEFAULT_RECAPTCHA_CONFIG = {
+  SITE_KEY: 'VOTRE_SITE_KEY_ICI'
+};
+
+// Import conditionnel des fichiers de config (seulement en développement local)
+let EMAILJS_CONFIG = DEFAULT_EMAILJS_CONFIG;
+let RECAPTCHA_CONFIG = DEFAULT_RECAPTCHA_CONFIG;
+
+// En développement local, on peut importer les vrais fichiers de config
+if (import.meta.env.DEV) {
+  try {
+    const { EMAILJS_CONFIG: localEmailjsConfig } = await import('../config/emailjs.js');
+    const { RECAPTCHA_CONFIG: localRecaptchaConfig } = await import('../config/recaptcha.js');
+    EMAILJS_CONFIG = localEmailjsConfig;
+    RECAPTCHA_CONFIG = localRecaptchaConfig;
+  } catch (error) {
+    // Les fichiers n'existent pas, on utilise les valeurs par défaut
+    console.log('Configuration locale non trouvée, utilisation des valeurs par défaut');
+  }
+}
 
 export default function ContactForm() {
   const form = useRef();
