@@ -124,40 +124,110 @@ function HomePage() {
         </section>
 
         <section className="section bg-gray-800 border-b border-gray-800">
-          <div className="container-custom">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-100 mb-12">
-              Mes Compétences
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              <div
-                className="card text-center animate-scale-in"
-                style={{ animationDelay: "0.1s" }}
-              >
-                <div className="text-4xl mb-4 animate-float">💻</div>
-                <h3 className="text-xl font-semibold mb-2">Frontend</h3>
-                <p className="text-gray-400">React, TypeScript, Tailwind CSS</p>
-              </div>
-              <div
-                className="card text-center animate-scale-in"
-                style={{ animationDelay: "0.2s" }}
-              >
-                <div className="text-4xl mb-4 animate-float">⚙️</div>
-                <h3 className="text-xl font-semibold mb-2">Backend</h3>
-                <p className="text-gray-400">
-                  PHP, Node.js, Python, MySQL, MongoDB
-                </p>
-              </div>
-              <div
-                className="card text-center animate-scale-in"
-                style={{ animationDelay: "0.3s" }}
-              >
-                <div className="text-4xl mb-4 animate-float">🚀</div>
-                <h3 className="text-xl font-semibold mb-2">DevOps</h3>
-                <p className="text-gray-400">Docker, CI/CD, Git</p>
-              </div>
-            </div>
+  <div className="container-custom">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-100 mb-6">
+        Compétences
+      </h2>
+      <div className="w-20 h-1 bg-primary-400 rounded-full mx-auto mb-6"></div>
+    </div>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+      {/* Frontend */}
+      <div className="group relative bg-gradient-to-br from-gray-700/50 to-gray-800 backdrop-blur-sm border border-gray-600/30 rounded-2xl p-8 hover:border-primary-400/50 transition-all duration-500 animate-scale-in" style={{ animationDelay: "0.1s" }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="relative z-10">
+          <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+            <span className="text-3xl text-white">💻</span>
           </div>
-        </section>
+          <h3 className="text-2xl font-bold text-gray-100 mb-4 text-center">Développement Frontend</h3>
+          <p className="text-gray-400 text-center mb-6 leading-relaxed">
+            Création d'interfaces utilisateur modernes et réactives avec les technologies les plus récentes.
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">React & Next.js</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">TypeScript</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">Tailwind CSS</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">Responsive Design</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {/* Backend */}
+      <div className="group relative bg-gradient-to-br from-gray-700/50 to-gray-800 backdrop-blur-sm border border-gray-600/30 rounded-2xl p-8 hover:border-primary-400/50 transition-all duration-500 animate-scale-in" style={{ animationDelay: "0.2s" }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="relative z-10">
+          <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+            <span className="text-3xl text-white">⚙️</span>
+          </div>
+          <h3 className="text-2xl font-bold text-gray-100 mb-4 text-center">Architecture Backend</h3>
+          <p className="text-gray-400 text-center mb-6 leading-relaxed">
+            Développement d'APIs robustes et de systèmes serveur performants et scalables.
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">PHP & Node.js</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">Python</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">MySQL & MongoDB</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">RESTful APIs</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {/* DevOps */}
+      <div className="group relative bg-gradient-to-br from-gray-700/50 to-gray-800 backdrop-blur-sm border border-gray-600/30 rounded-2xl p-8 hover:border-primary-400/50 transition-all duration-500 animate-scale-in" style={{ animationDelay: "0.3s" }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="relative z-10">
+          <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+            <span className="text-3xl text-white">🚀</span>
+          </div>
+          <h3 className="text-2xl font-bold text-gray-100 mb-4 text-center">DevOps & Déploiement</h3>
+          <p className="text-gray-400 text-center mb-6 leading-relaxed">
+            Automatisation des processus de développement et déploiement continu.
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">Docker & Kubernetes</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">CI/CD Pipelines</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">Git & GitHub</span>
+            </li>
+            <li className="flex items-center space-x-3">
+              <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
+              <span className="text-gray-300 font-medium">Monitoring & Logs</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         <section id="projects" className="section bg-gray-900 border-b border-gray-800">
           <div className="container-custom">
