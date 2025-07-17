@@ -4,20 +4,17 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 // Configuration par défaut (utilisée en production)
 let EMAILJS_CONFIG = {
-  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'VOTRE_SERVICE_ID_ICI',
-  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'VOTRE_TEMPLATE_ID_ICI',
-  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'VOTRE_PUBLIC_KEY_ICI'
+  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
+  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
+  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ''
 };
 
 let RECAPTCHA_CONFIG = {
-  SITE_KEY: import.meta.env.VITE_RECAPTCHA_SITE_KEY || 'VOTRE_SITE_KEY_ICI'
+  SITE_KEY: import.meta.env.VITE_RECAPTCHA_SITE_KEY || ''
 };
 
 // En développement local, on peut utiliser les fichiers de config
-if (import.meta.env.DEV) {
-  // Les fichiers de config locaux seront utilisés s'ils existent
-  // Sinon on garde les valeurs par défaut
-}
+// Ces fichiers sont ignorés par Git et ne sont pas déployés sur Vercel
 
 export default function ContactForm() {
   const form = useRef();
