@@ -6,6 +6,7 @@ import ThreeDAvatar from "./components/Laptop3D";
 import TechStack from "./components/TechStack";
 import ProjectsPage from "./pages/ProjectsPage";
 import Header from "./components/Header";
+import ContactForm from "./components/ContactForm";
 
 if (typeof window !== 'undefined') {
   document.documentElement.style.scrollBehavior = 'smooth';
@@ -281,101 +282,7 @@ function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-semibold text-gray-100 mb-6">
-                  Envoyez-moi un message
-                </h3>
-
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="firstName"
-                        className="block text-sm font-medium text-gray-300 mb-2"
-                      >
-                        Prénom
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        className="form-input"
-                        placeholder="Votre prénom"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="lastName"
-                        className="block text-sm font-medium text-gray-300 mb-2"
-                      >
-                        Nom
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        className="form-input"
-                        placeholder="Votre nom"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-300 mb-2"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="form-input"
-                      placeholder="votre@email.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-gray-300 mb-2"
-                    >
-                      Sujet
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      className="form-input"
-                      placeholder="Sujet de votre message"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-300 mb-2"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="5"
-                      className="form-input resize-none"
-                      placeholder="Décrivez votre projet ou votre demande..."
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full btn-primary text-lg py-3"
-                  >
-                    Envoyer le message
-                  </button>
-                </form>
-              </div>
+              <ContactForm />
 
               <div className="space-y-8">
                 <h3 className="text-2xl font-semibold text-gray-100 mb-6">
