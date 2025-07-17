@@ -51,7 +51,7 @@ export default function ProjectsPage() {
           </h1>
           <div className="w-20 h-1 bg-primary-400 rounded-full mx-auto mb-6"></div>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Découvrez mes réalisations, de la conception à la mise en production.
+            Découvrez mes projets, de la conception à la mise en production.
             Chaque projet reflète mon expertise technique et ma passion pour l'innovation.
           </p>
         </div>

@@ -133,7 +133,7 @@ export default function Carousel() {
                       rel="noopener noreferrer"
                       className="flex-1 bg-gray-700 text-gray-300 py-2 px-4 rounded-lg text-center hover:bg-accent hover:text-gray-900 transition-all duration-300 text-sm"
                     >
-                      Code
+                      Repository
                     </a>
                   )}
                   {project.liveUrl !== "#" && (

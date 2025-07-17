@@ -2,28 +2,28 @@ export const projects = [
   {
     id: 1,
     title: "Portfolio Vitrine",
-    shortDescription: "Un site vitrine moderne et responsive pour présenter vos projets et compétences.",
+    shortDescription: "Un site vitrine pour présenter mes projets et compétences.",
     fullDescription: "Portfolio personnel développé avec React et Tailwind CSS, présentant mes compétences et projets de manière élégante et professionnelle.",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80",
+    image: "projects screens/portfolio hero.png",
     technologies: ["React", "Tailwind CSS", "JavaScript", "Vite"],
     category: "Frontend",
-    githubUrl: "#",
-    liveUrl: "#",
+    githubUrl: "https://github.com/xentee/portfolio",
+    liveUrl: "https://lucasfanner-portfolio.vercel.app/",
     featured: true,
-    status: "completed"
+    status: "in-progress"
   },
   {
     id: 2,
-    title: "Application Dashboard",
-    shortDescription: "Un dashboard interactif avec statistiques, graphiques et gestion avancée.",
-    fullDescription: "Dashboard administratif avec visualisation de données en temps réel, graphiques interactifs et système de gestion des utilisateurs.",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
-    technologies: ["React", "Node.js", "Chart.js", "MongoDB"],
+    title: "CSLedger",
+    shortDescription: "Gestionnaire d'investissements dans les skins CS2.",
+    fullDescription: "Application web permettant de gérer plusieurs portefeuilles de skins pour Counter-Strike 2. Suivi des achats/ventes, calculs des profits, et visualisation structurée des investissements. Conçue pour les traders de skins cherchant une alternative aux tableaux Excel.",
+    image: "https://images.unsplash.com/photo-1602407294553-6a7553f46f94?auto=format&fit=crop&w=600&q=80",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     category: "Full-Stack",
-    githubUrl: "#",
+    githubUrl: "https://github.com/xentee/CSLedger",
     liveUrl: "#",
     featured: true,
-    status: "completed"
+    status: "in-progress"
   },
   {
     id: 3,
